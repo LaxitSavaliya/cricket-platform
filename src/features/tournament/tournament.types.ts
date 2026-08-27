@@ -1,6 +1,4 @@
 export interface Tournament {
-  id: string;
-  organizationId: string;
   name: string;
   slug: string;
   logoUrl: string | null;
@@ -64,6 +62,7 @@ export interface TournamentHeaderProps {
   onSortChange: (value: TournamentSortOptionValue) => void;
   viewMode: TournamentViewMode;
   onViewModeChange: (mode: TournamentViewMode) => void;
+  onOpenCreateModal?: () => void;
 }
 
 export interface TournamentStatsProps {
@@ -75,9 +74,25 @@ export interface TournamentCardProps {
   tournament: Tournament;
 }
 
+export interface TournamentTableProps {
+  tournaments: Tournament[];
+}
+
+export interface TournamentSkeletonProps {
+  viewMode?: TournamentViewMode;
+  count?: number;
+}
+
 export interface TournamentEmptyStateProps {
   isSearchFiltered?: boolean;
   onClearSearch?: () => void;
+  onCreateTournament?: () => void;
+}
+
+export interface CreateTournamentModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSuccess?: (tournament: Tournament) => void;
 }
 
 export interface UseInfiniteTournamentsOptions {

@@ -1,10 +1,12 @@
 import { Plus, Search, Trophy } from "lucide-react";
 
+import { Button } from "@/components/ui/Button";
 import type { TournamentEmptyStateProps } from "../tournament.types";
 
 export function TournamentEmptyState({
   isSearchFiltered = false,
   onClearSearch,
+  onCreateTournament,
 }: TournamentEmptyStateProps) {
   if (isSearchFiltered) {
     return (
@@ -20,13 +22,14 @@ export function TournamentEmptyState({
           checking your spelling or reset the filter.
         </p>
         {onClearSearch && (
-          <button
-            type="button"
+          <Button
+            variant="secondary"
+            size="sm"
             onClick={onClearSearch}
-            className="mt-5 rounded-xl border border-zinc-300 bg-white px-4 py-2 text-xs font-semibold text-zinc-700 shadow-xs hover:bg-zinc-50"
+            className="mt-5"
           >
             Clear Search Filter
-          </button>
+          </Button>
         )}
       </div>
     );
@@ -44,13 +47,14 @@ export function TournamentEmptyState({
         Create your first cricket tournament to start scheduling matches,
         registering teams, managing players, and running live scoring.
       </p>
-      <button
-        type="button"
-        className="mt-5 inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-4 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-zinc-800 transition-colors"
+      <Button
+        variant="primary"
+        onClick={onCreateTournament}
+        leftIcon={<Plus className="h-4 w-4" />}
+        className="mt-5 px-4 py-2.5 text-xs font-semibold"
       >
-        <Plus className="h-4 w-4" />
-        <span>Create First Tournament</span>
-      </button>
+        Create First Tournament
+      </Button>
     </div>
   );
 }

@@ -4,7 +4,7 @@ export const TOURNAMENT_QUERY_KEYS = {
   list: (filters?: Record<string, unknown>) =>
     [...TOURNAMENT_QUERY_KEYS.lists(), { ...(filters ?? {}) }] as const,
   details: () => [...TOURNAMENT_QUERY_KEYS.all, "detail"] as const,
-  detail: (id: string) => [...TOURNAMENT_QUERY_KEYS.details(), id] as const,
+  detail: (slug: string) => [...TOURNAMENT_QUERY_KEYS.details(), slug] as const,
 };
 
 export const TOURNAMENT_SORT_OPTIONS = [

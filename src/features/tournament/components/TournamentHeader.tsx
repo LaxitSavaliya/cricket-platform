@@ -1,6 +1,7 @@
 import { Grid, List, Plus, Search } from "lucide-react";
 
 import { FormField } from "@/components/form/FormField";
+import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 import { TOURNAMENT_SORT_OPTIONS } from "../tournament.constants";
@@ -17,6 +18,7 @@ export function TournamentHeader({
   onSortChange,
   viewMode,
   onViewModeChange,
+  onOpenCreateModal,
 }: TournamentHeaderProps) {
   return (
     <div className="flex flex-col gap-5">
@@ -36,13 +38,14 @@ export function TournamentHeader({
           </p>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-4 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-zinc-800 transition-colors"
+        <Button
+          variant="primary"
+          onClick={onOpenCreateModal}
+          leftIcon={<Plus className="h-4 w-4" />}
+          className="px-4 py-2.5 text-xs font-semibold"
         >
-          <Plus className="h-4 w-4" />
-          <span>New Tournament</span>
-        </button>
+          New Tournament
+        </Button>
       </div>
 
       {/* Filter and Search Controls Bar */}
@@ -72,30 +75,30 @@ export function TournamentHeader({
             />
           </div>
 
-          <div className="flex items-center rounded-xl border border-zinc-200 p-0.5 bg-zinc-50/50">
+          <div className="flex items-center rounded-xl border border-zinc-200 py-0.5 px-1.5 bg-zinc-50/50">
             <button
               type="button"
               onClick={() => onViewModeChange("grid")}
-              className={`flex h-7.5 w-7.5 items-center justify-center rounded-lg text-xs transition-colors ${
+              className={`flex h-8 w-8 items-center justify-center cursor-pointer rounded-lg text-xs transition-colors ${
                 viewMode === "grid"
                   ? "bg-white text-zinc-950 shadow-xs font-semibold"
                   : "text-zinc-400 hover:text-zinc-700"
               }`}
               aria-label="Grid View"
             >
-              <Grid className="h-3.5 w-3.5" />
+              <Grid className="h-4.25 w-4.25" />
             </button>
             <button
               type="button"
               onClick={() => onViewModeChange("list")}
-              className={`flex h-7.5 w-7.5 items-center justify-center rounded-lg text-xs transition-colors ${
+              className={`flex h-8 w-8 items-center justify-center cursor-pointer rounded-lg text-xs transition-colors ${
                 viewMode === "list"
                   ? "bg-white text-zinc-950 shadow-xs font-semibold"
                   : "text-zinc-400 hover:text-zinc-700"
               }`}
               aria-label="List View"
             >
-              <List className="h-3.5 w-3.5" />
+              <List className="h-4.25 w-4.25" />
             </button>
           </div>
         </div>

@@ -92,13 +92,13 @@ export function TournamentCard({ tournament }: TournamentCardProps) {
 
         <div className="flex items-center gap-2">
           <Link
-            href={`/teams?tournament=${tournament.id}`}
+            href={`/teams?tournament=${tournament.slug}`}
             className="rounded-lg bg-zinc-100 px-2.5 py-1 text-[11px] font-medium text-zinc-700 hover:bg-zinc-200 transition-colors"
           >
             Teams
           </Link>
           <Link
-            href={`/matches?tournament=${tournament.id}`}
+            href={`/matches?tournament=${tournament.slug}`}
             className="rounded-lg bg-zinc-100 px-2.5 py-1 text-[11px] font-medium text-zinc-700 hover:bg-zinc-200 transition-colors"
           >
             Matches
