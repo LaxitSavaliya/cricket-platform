@@ -3,6 +3,8 @@
 import { ChevronDown, X } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 
+import { cn } from "@/lib/utils";
+
 export interface SelectOption {
   label: string;
   value: string | number;
@@ -149,10 +151,9 @@ export function Select({
             setIsOpen((prev) => !prev);
           }
         }}
-        className={[
+        className={cn(
           "flex h-11 w-full items-center justify-between rounded-xl border bg-white px-3.5 text-left text-sm transition outline-none cursor-pointer",
           "disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500",
-
           error
             ? isOpen
               ? "border-red-500 ring-4 ring-red-100"
@@ -160,9 +161,8 @@ export function Select({
             : isOpen
               ? "border-slate-400 ring-4 ring-slate-100"
               : "border-slate-200 hover:border-slate-300 focus:border-slate-400 focus:ring-4 focus:ring-slate-100",
-
           className,
-        ].join(" ")}
+        )}
       >
         <span
           className={[
