@@ -1,4 +1,5 @@
 export * from "./components";
+export * from "./detail";
 export * from "./tournament.api";
 export * from "./tournament.constants";
 export * from "./tournament.queries";
